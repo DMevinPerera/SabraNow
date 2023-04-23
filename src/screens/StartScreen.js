@@ -19,6 +19,10 @@ export default function StartScreen({ navigation }) {
       Go to place to get live updates on
 events taking place at SUSL
       </Paragraph>
+      <Paragraph>
+      Go to place to get live updates on
+
+      </Paragraph>
       <Button
         mode="outlined"
         onPress={() => navigation.navigate('LoginScreen')}
