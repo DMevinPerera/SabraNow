@@ -20,7 +20,7 @@ export default function StartScreen({ navigation }) {
 events taking place at SUSL
       </Paragraph>
       <Paragraph>
-      Go to place to get live updates on
+      Welcome
 
       </Paragraph>
       <Button
