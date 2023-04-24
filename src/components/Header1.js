@@ -1,1 +1,19 @@
-<Text>Hello World</Text>
+import React from 'react'
+import { StyleSheet } from 'react-native'
+import { Text } from 'react-native-paper'
+import { theme } from '../core/theme'
+
+export default function Header1(props) {
+  return <Text style={styles.header} {...props} />
+}
+
+const styles = StyleSheet.create({
+  header: {
+    fontSize: 20,
+    color: theme.colors.primary,
+    fontWeight: 'bold',
+    paddingVertical: 12,
+    alignItems: 'flex-start',
+    alignSelf: 'flex-start',
+  },
+})
