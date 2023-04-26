@@ -3,14 +3,15 @@ import { View, StyleSheet, TouchableOpacity } from 'react-native'
 import { Text } from 'react-native-paper'
 import Background from '../components/Background'
 import Logo from '../components/Logo'
-import Header from '../components/Header'
-import Button from '../components/Button'
+import Header1 from '../components/Header1'
+import Button1 from '../components/Button1'
 import TextInput from '../components/TextInput'
 import BackButton from '../components/BackButton'
 import { theme } from '../core/theme'
 import { emailValidator } from '../helpers/emailValidator'
 import { passwordValidator } from '../helpers/passwordValidator'
 import { nameValidator } from '../helpers/nameValidator'
+import Dropdown from '../components/Dropdown'
 
 export default function RegisterScreen({ navigation }) {
   const [name, setName] = useState({ value: '', error: '' })
@@ -36,16 +37,10 @@ export default function RegisterScreen({ navigation }) {
   return (
     <Background>
       <BackButton goBack={navigation.goBack} />
+      <Dropdown/>
       <Logo />
-      <Header>Create Account</Header>
-      <TextInput
-        label="Name"
-        returnKeyType="next"
-        value={name.value}
-        onChangeText={(text) => setName({ value: text, error: '' })}
-        error={!!name.error}
-        errorText={name.error}
-      />
+      <Header1>Create Account</Header1>
+      <View style={styles.whitebox}>
       <TextInput
         label="Email"
         returnKeyType="next"
@@ -58,7 +53,7 @@ export default function RegisterScreen({ navigation }) {
         textContentType="emailAddress"
         keyboardType="email-address"
       />
-      <TextInput
+       <TextInput
         label="Password"
         returnKeyType="done"
         value={password.value}
@@ -67,18 +62,37 @@ export default function RegisterScreen({ navigation }) {
         errorText={password.error}
         secureTextEntry
       />
-      <Button
-        mode="contained"
+      <TextInput
+        label="Phone Number"
+        returnKeyType="next"
+        value={name.value}
+        onChangeText={(text) => setName({ value: text, error: '' })}
+        error={!!name.error}
+        errorText={name.error}
+      />
+      <TextInput
+        label="Index Number"
+        returnKeyType="next"
+        value={name.value}
+        onChangeText={(text) => setName({ value: text, error: '' })}
+        error={!!name.error}
+        errorText={name.error}
+      />
+      
+     
+      <Button1
+        mode="outlined"
         onPress={onSignUpPressed}
         style={{ marginTop: 24 }}
       >
         Sign Up
-      </Button>
+      </Button1>
       <View style={styles.row}>
         <Text>Already have an account? </Text>
         <TouchableOpacity onPress={() => navigation.replace('LoginScreen')}>
           <Text style={styles.link}>Login</Text>
         </TouchableOpacity>
+      </View>
       </View>
     </Background>
   )
@@ -88,9 +102,25 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     marginTop: 4,
+   
+    marginBottom: 10,
+    alignItems: 'center',
+    alignSelf: 'center',
   },
   link: {
     fontWeight: 'bold',
-    color: theme.colors.primary,
+    color: '#02585E',
   },
+  whitebox: {
+    width: '100%',
+    backgroundColor: 'white',
+    borderRadius: 15,
+    shadowColor: "#000000",
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    shadowOffset: {
+      height: 2,
+      width: 1
+    }
+  }
 })
